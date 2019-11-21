@@ -8,61 +8,66 @@ namespace Trabalho_Ex003
 {
     public class Usuario : Pessoa
     {
-        public class Usuario : Pessoa
-    {
-        public void ExibirNiveisDeJogo()
+        public int ExibirNiveisDeJogo()
         {
+            int opcaoEscolhida = 0;
+
+            Console.WriteLine("Jogo Mini Mega Sena Iniciado.");
             Console.WriteLine
                 (
                     "================================== \n" +
                     $"{Nome}, digite 1 ou 2 de acordo o nível de jogo que gostaria de jogar: \n" +
-                      $"Nível 1 - números de 1 a 20, com 5 chances para acertar. \n" +
-                      $"Nível 2 - números de 1 a 40, com 10 chances para acertar. \n " +
-                    "================================== \n" 
+                      $"Nível 1 - números de 1 a 30. \n" +
+                      $"Nível 2 - números de 1 a 60. \n " +
+                    "================================== \n"
                 );
+            opcaoEscolhida = int.Parse(Console.ReadLine());
+            return opcaoEscolhida;
         }
 
-        public void SolicitarNome()
+        public string SolicitarNome()
         {
+            string nome;
+
             Console.Write("Informe o nome do usuario: ");
+            nome = Console.ReadLine();
+            return nome;
         }
 
-        public void SolicitarNumerosNivelUm()
+
+        public void InformarQuantidadeDeAcertos(int numerosCertos)
         {
-            Console.WriteLine("==================================");
-            Console.Write($"{Nome}, informe um número de 1 a 20: ");
-        }
-        public void SolicitarNumerosNivelDois()
-        {
-            Console.WriteLine("==================================");
-            Console.Write($"{Nome}, informe um número de 1 a 40: ");
+            switch (numerosCertos)
+            {
+                case 4:
+                    Console.WriteLine($"Parabéns {Nome}, acertou 4, mas ganhou pouco dinheiro");
+                    Console.ReadLine();
+                    break;
+
+                case 5:
+                    Console.WriteLine($"Parabéns {Nome}, acertou 5, quero um churrasco!");
+                    Console.ReadLine();
+                    break;
+
+                case 6:
+                    Console.WriteLine($"Parabéns {Nome}, acertou 6, você esta rico! Quero um carro!");
+                    Console.ReadLine();
+                    break;
+
+                default:
+                    Console.WriteLine($"Que pena {Nome}, você não pontuou o suficiente");
+                    break;
+            }
         }
 
-        public void InformarNumeroMaior()
+        public bool JogarNovamente()
         {
-            Console.WriteLine($"{Nome}, o número digitado é maior do que o número sorteado");
-        }
+            bool jogarNovamente = false;
 
-        public void InformarNumeroMenor()
-        {
-            Console.WriteLine($"{Nome}, o número digitado é menor do que o número sorteado");
-        }
-
-        public void InformarNumeroGanhador()
-        {
-            Console.WriteLine($"Parabéns {Nome}, você acertou o número!");
-
-        }
-
-        public void JogarNovamente()
-        {
             Console.WriteLine($"Deseja jogar novamente? (Sim ou Não)");
-        }
+            jogarNovamente = Console.ReadLine().Contains("Sim") ? true : false;
 
-        public void InformarJogadasRestantes(int jogadasRestantes)
-        {
-            Console.WriteLine($"Jogadas restantes: {jogadasRestantes}");
+            return jogarNovamente;
         }
-    }
     }
 }

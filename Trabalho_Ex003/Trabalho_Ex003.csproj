@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MegaSena.cs" />
+    <Compile Include="MegaSenaNivelDois.cs" />
+    <Compile Include="MegaSenaNivelUm.cs" />
     <Compile Include="Pessoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
